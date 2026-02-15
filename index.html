@@ -1,4 +1,4 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@
             overflow: hidden; 
         }
 
-        /* Üst Bilgi Çubuğu (YENİ VE MODERN TASARIM) */
+        /* Üst Bilgi Çubuğu */
         .header {
             background: linear-gradient(135deg, #00152b 0%, var(--thy-dark-blue) 100%);
             color: var(--white);
@@ -42,7 +42,6 @@
             overflow: hidden;
         }
 
-        /* Arka plan için teknik ışık yansıması detayı */
         .header::before {
             content: '';
             position: absolute;
@@ -105,11 +104,9 @@
             box-shadow: inset 0 1px 4px rgba(0,0,0,0.5);
         }
 
-        .shift-info .highlight {
-            color: var(--warning-yellow);
-        }
+        .shift-info .highlight { color: var(--warning-yellow); }
 
-        /* Ana Kapsayıcı - Her zaman yatay */
+        /* Ana Kapsayıcı */
         .layout-container {
             display: flex;
             flex-direction: row;
@@ -150,353 +147,105 @@
             align-items: center;
         }
 
-        .panel-content {
-            padding: 15px;
-            overflow-y: auto;
-            flex-grow: 1;
-        }
+        .panel-content { padding: 15px; overflow-y: auto; flex-grow: 1; }
 
         /* Kişi Listesi */
-        .person-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 12px;
-            border: 1px solid var(--tech-border);
-            border-radius: 4px;
-            margin-bottom: 8px;
-            background: #F9FAFB;
-        }
+        .person-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border: 1px solid var(--tech-border); border-radius: 4px; margin-bottom: 8px; background: #F9FAFB; }
+        .person-left { display: flex; align-items: center; flex-grow: 1; overflow: hidden; }
+        .person-checkbox { margin-right: 12px; width: 18px; height: 18px; accent-color: var(--thy-dark-blue); cursor: pointer; flex-shrink: 0; }
+        .person-name-display { font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .person-name-edit-input { flex-grow: 1; padding: 4px 8px; border: 1px solid var(--thy-dark-blue); border-radius: 4px; font-family: inherit; font-size: 14px; margin-right: 10px; width: 100px; text-transform: uppercase; }
+        .person-right { display: flex; align-items: center; flex-shrink: 0; }
 
-        .person-left {
-            display: flex;
-            align-items: center;
-            flex-grow: 1;
-            overflow: hidden;
-        }
-
-        .person-checkbox {
-            margin-right: 12px;
-            width: 18px;
-            height: 18px;
-            accent-color: var(--thy-dark-blue);
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
-        .person-name-display {
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .person-name-edit-input {
-            flex-grow: 1;
-            padding: 4px 8px;
-            border: 1px solid var(--thy-dark-blue);
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 14px;
-            margin-right: 10px;
-            width: 100px;
-            text-transform: uppercase; 
-        }
-
-        .person-right {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .cs-label {
-            font-size: 12px;
-            font-weight: bold;
-            color: var(--thy-red);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            margin-right: 15px;
-            cursor: pointer;
-            background: #FFF0F2;
-            padding: 4px 8px;
-            border-radius: 4px;
-            border: 1px solid #FFCCD5;
-        }
-
-        .cs-radio {
-            accent-color: var(--thy-red);
-            cursor: pointer;
-            width: 14px;
-            height: 14px;
-            margin: 0;
-        }
-
-        .btn-icon {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-            font-size: 14px;
-            color: #6B7280;
-        }
+        .cs-label { font-size: 12px; font-weight: bold; color: var(--thy-red); display: flex; align-items: center; gap: 4px; margin-right: 15px; cursor: pointer; background: #FFF0F2; padding: 4px 8px; border-radius: 4px; border: 1px solid #FFCCD5; }
+        .cs-radio { accent-color: var(--thy-red); cursor: pointer; width: 14px; height: 14px; margin: 0; }
+        .btn-icon { background: none; border: none; cursor: pointer; padding: 4px; font-size: 14px; color: #6B7280; }
 
         /* Kontroller */
         .control-group { margin-bottom: 20px; }
-        .control-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--thy-dark-blue);
-        }
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--tech-border);
-            border-radius: 4px;
-            font-size: 15px;
-            background-color: #F9FAFB;
-        }
+        .control-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: var(--thy-dark-blue); }
+        select { width: 100%; padding: 10px; border: 1px solid var(--tech-border); border-radius: 4px; font-size: 15px; background-color: #F9FAFB; }
 
-        .btn-primary {
-            width: 100%;
-            background-color: var(--thy-red);
-            color: var(--white);
-            border: none;
-            padding: 14px;
-            border-radius: 4px;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
+        .btn-primary { width: 100%; background-color: var(--thy-red); color: var(--white); border: none; padding: 14px; border-radius: 4px; font-size: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; display: flex; justify-content: center; align-items: center; gap: 8px; }
         .btn-primary:hover { background-color: #A00026; }
 
-        .btn-print {
-            background-color: var(--thy-dark-blue);
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            display: none; 
-            align-items: center;
-            gap: 5px;
-        }
+        .btn-reset { width: 100%; background: none; border: 1px solid #9CA3AF; color: #4B5563; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .btn-reset:hover { background: #F3F4F6; color: var(--thy-red); border-color: var(--thy-red); }
+
+        /* Üst Panel Butonları */
+        .action-buttons { display: flex; gap: 10px; }
+        .btn-print { background-color: var(--thy-dark-blue); color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; cursor: pointer; display: none; align-items: center; gap: 5px; }
         .btn-print:hover { background-color: #00152b; }
+        
+        .btn-save { background-color: var(--warning-yellow); color: var(--thy-dark-blue); border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; cursor: pointer; display: none; align-items: center; gap: 5px; }
+        .btn-save:hover { background-color: #D97706; color: white; }
 
         /* Görev Kartları ve A4 Düzeni */
-        .a4-print-container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100%;
-            position: relative;
-        }
-
+        .a4-print-container { display: flex; flex-direction: column; min-height: 100%; position: relative; }
         .print-only-header { display: none; }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .task-card {
-            background: var(--white);
-            border: 2px solid var(--thy-dark-blue);
-            border-radius: 0;
-            font-family: 'Courier New', Courier, monospace;
-            box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
-        }
-
-        .tc-header {
-            background-color: var(--thy-dark-blue);
-            color: var(--white);
-            padding: 8px 12px;
-            font-weight: bold;
-            font-size: 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--thy-dark-blue);
-            white-space: nowrap; 
-        }
-
-        .tc-header span {
-            white-space: nowrap;
-        }
-
-        .tc-badge {
-            background-color: var(--warning-yellow);
-            color: var(--thy-dark-blue);
-            padding: 2px 6px;
-            font-size: 12px;
-            border-radius: 3px;
-            margin-left: 10px;
-        }
-
-        .tc-meta {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border-bottom: 1px solid var(--tech-border);
-            background-color: #F3F4F6;
-            font-size: 12px;
-        }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin-bottom: 30px; }
         
+        .task-card { background: var(--white); border: 2px solid var(--thy-dark-blue); border-radius: 0; font-family: 'Courier New', Courier, monospace; box-shadow: 2px 2px 0px rgba(0,0,0,0.1); }
+        .tc-header { background-color: var(--thy-dark-blue); color: var(--white); padding: 8px 12px; font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--thy-dark-blue); white-space: nowrap; }
+        .tc-badge { background-color: var(--warning-yellow); color: var(--thy-dark-blue); padding: 2px 6px; font-size: 12px; border-radius: 3px; margin-left: 10px; }
+        .tc-meta { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--tech-border); background-color: #F3F4F6; font-size: 12px; }
         .tc-meta div { padding: 6px 12px; border-right: 1px solid var(--tech-border); }
         .tc-meta div:last-child { border-right: none; }
-
         .tc-body { padding: 12px; }
-        
-        .tc-title {
-            font-weight: bold;
-            font-size: 13px;
-            margin-bottom: 8px;
-            color: var(--thy-dark-blue);
-            text-decoration: underline;
-        }
+        .tc-title { font-weight: bold; font-size: 13px; margin-bottom: 8px; color: var(--thy-dark-blue); text-decoration: underline; }
+        .tc-tech { padding: 4px 0; font-size: 14px; display: flex; align-items: center; }
+        .tc-tech::before { content: '[  ]'; margin-right: 10px; font-weight: bold; color: var(--thy-dark-blue); }
+        .cs-badge { color: var(--thy-red); font-weight: bold; font-size: 11px; margin-left: 8px; }
 
-        .tc-tech {
-            padding: 4px 0;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .tc-tech::before {
-            content: '[  ]';
-            margin-right: 10px;
-            font-weight: bold;
-            color: var(--thy-dark-blue);
-        }
+        /* Geçmiş Kayıtlar (Arşiv) Kartları */
+        .history-card { background: #F9FAFB; border: 1px solid var(--tech-border); border-radius: 6px; padding: 12px; margin-bottom: 12px; border-left: 4px solid var(--warning-yellow); }
+        .history-header { display: flex; justify-content: space-between; font-weight: bold; font-size: 13px; color: var(--thy-dark-blue); margin-bottom: 8px; border-bottom: 1px solid var(--tech-border); padding-bottom: 6px; }
+        .history-cs { font-size: 12px; color: var(--thy-red); font-weight: bold; margin-bottom: 8px; }
+        .history-group { font-size: 12px; font-family: monospace; padding: 4px 0; border-bottom: 1px dashed #E5E7EB; }
+        .history-group:last-child { border-bottom: none; }
+        .btn-delete { background: none; border: none; color: #9CA3AF; cursor: pointer; font-size: 12px; }
+        .btn-delete:hover { color: var(--thy-red); }
 
-        .cs-badge {
-            color: var(--thy-red);
-            font-weight: bold;
-            font-size: 11px;
-            margin-left: 8px;
-        }
-
-        /* Tekil İmza Alanı */
-        .master-footer {
-            margin-top: auto;
-            border-top: 2px solid var(--thy-dark-blue);
-            padding-top: 15px;
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-        }
-
+        .master-footer { margin-top: auto; border-top: 2px solid var(--thy-dark-blue); padding-top: 15px; display: flex; justify-content: space-between; font-family: 'Courier New', Courier, monospace; font-size: 14px; }
         .mf-section { display: flex; flex-direction: column; gap: 8px; }
         .mf-sign-line { border-bottom: 1px solid black; width: 200px; display: inline-block; margin-top: 10px; }
 
-        /* Özel Scrollbar */
         ::-webkit-scrollbar { height: 8px; width: 6px; }
         ::-webkit-scrollbar-track { background: #E5E7EB; }
         ::-webkit-scrollbar-thumb { background: var(--thy-dark-blue); border-radius: 4px; }
 
-        /* MOBİL UYUM */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 15px;
-                padding: 15px;
-            }
+            .header { flex-direction: column; align-items: stretch; gap: 15px; padding: 15px; }
             .header-logo-title { justify-content: flex-start; }
             .header h1 { font-size: 18px; }
             .shift-info { justify-content: center; }
-
-            .layout-container {
-                padding: 10px;
-                scroll-snap-type: x mandatory; 
-            }
-            .panel {
-                min-width: 90vw; 
-                scroll-snap-align: center;
-            }
+            .layout-container { padding: 10px; scroll-snap-type: x mandatory; }
+            .panel { min-width: 90vw; scroll-snap-align: center; }
             .cards-grid { grid-template-columns: 1fr; }
         }
 
-        /* YAZDIRMA (PRINT) STİLLERİ - KESİN DOĞAL AKIŞ ÇÖZÜMÜ */
+        /* YAZDIRMA STİLLERİ */
         @media print {
-            @page { 
-                size: A4 portrait; 
-                margin: 15mm; 
-            }
-            html, body { 
-                background: white; 
-                margin: 0 !important; 
-                padding: 0 !important;
-                height: auto !important;
-                overflow: visible !important; 
-            }
+            @page { size: A4 portrait; margin: 15mm; }
+            html, body { background: white; margin: 0 !important; padding: 0 !important; height: auto !important; overflow: visible !important; }
             .header, 
             .layout-container > .panel:nth-child(1), 
-            .layout-container > .panel:nth-child(2) { 
-                display: none !important; 
-            }
-            .layout-container { 
-                padding: 0; 
-                display: block; 
-                height: auto; 
-            }
-            .layout-container > .panel:nth-child(3) { 
-                border: none; 
-                box-shadow: none; 
-                width: 100%; 
-                max-width: none; 
-                padding: 0; 
-                height: auto; 
-            }
-            .panel-header { display: none !important; }
+            .layout-container > .panel:nth-child(2),
+            .layout-container > .panel:nth-child(4) { display: none !important; } 
             
-            .a4-print-container {
-                display: block; 
-                height: auto;
-            }
+            .layout-container { padding: 0; display: block; height: auto; }
+            .layout-container > .panel:nth-child(3) { border: none; box-shadow: none; width: 100%; max-width: none; padding: 0; height: auto; }
+            .panel-header { display: none !important; }
+            .a4-print-container { display: block; height: auto; }
 
-            .print-only-header {
-                display: block;
-                text-align: center;
-                border-bottom: 3px solid var(--thy-red);
-                padding-bottom: 10px;
-                margin-bottom: 20px;
-                font-family: 'Segoe UI', sans-serif;
-            }
-
+            .print-only-header { display: block; text-align: center; border-bottom: 3px solid var(--thy-red); padding-bottom: 10px; margin-bottom: 20px; font-family: 'Segoe UI', sans-serif; }
             .print-only-header h2 { margin: 0; color: var(--thy-dark-blue); font-size: 22px; }
             .print-only-header p { margin: 5px 0 0 0; font-family: 'Courier New'; font-size: 14px; font-weight: bold; }
 
-            .cards-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-                page-break-inside: avoid;
-            }
-
+            .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; page-break-inside: avoid; }
             .task-card { border: 2px solid black; break-inside: avoid; }
             
-            .master-footer { 
-                margin-top: 50px !important; 
-                border-top: 2px solid black; 
-                padding-top: 15px;
-                width: 100%;
-                display: flex;
-                page-break-inside: avoid; 
-            }
+            .master-footer { margin-top: 50px !important; border-top: 2px solid black; padding-top: 15px; width: 100%; display: flex; page-break-inside: avoid; }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
     </style>
@@ -540,13 +289,18 @@
                     </select>
                 </div>
                 <button class="btn-primary" onclick="generateTaskCards()">Görev Kartı Oluştur 📋</button>
+                
+                <button class="btn-reset" onclick="resetSystem()" title="Sistem takılırsa veya verileri temizlemek istersen tıkla">🔄 Hafızayı Temizle / Sıfırla</button>
             </div>
         </div>
 
         <div class="panel" style="flex: 1; max-width: none;">
             <div class="panel-header">
                 <span>📄 Aktif Gruplar</span>
-                <button class="btn-print" id="print-btn" onclick="window.print()">🖨️ A4 Yazdır</button>
+                <div class="action-buttons">
+                    <button class="btn-save" id="save-btn" onclick="saveToArchive()">💾 Arşive Kaydet</button>
+                    <button class="btn-print" id="print-btn" onclick="window.print()">🖨️ A4 Yazdır</button>
+                </div>
             </div>
             <div class="panel-content" id="result-container">
                 <div style="text-align: center; color: #6B7280; margin-top: 40px; font-family: monospace;">
@@ -555,18 +309,25 @@
             </div>
         </div>
 
+        <div class="panel" style="flex: 0 0 320px;">
+            <div class="panel-header"><span>🗄️ GEÇMİŞ KAYITLAR</span></div>
+            <div class="panel-content" id="history-container">
+                </div>
+        </div>
+
     </div>
 
     <script>
+        // Tarih Ayarı
         const today = new Date();
         const dd = String(today.getDate()).padStart(2, '0');
         const mm = String(today.getMonth() + 1).padStart(2, '0'); 
         const yyyy = today.getFullYear();
         const todayStr = `${dd}.${mm}.${yyyy}`;
-        
         document.getElementById('current-date').innerText = todayStr;
 
-        let peopleData = [
+        // Varsayılan Veri
+        const defaultPeopleData = [
             { id: 4, name: "MERT CIVAN", present: true, isCs: true },
             { id: 1, name: "AHMET ALİ TÜRK", present: true, isCs: false },
             { id: 2, name: "TOLGAHAN KÖNTEK", present: true, isCs: false },
@@ -577,11 +338,34 @@
             { id: 8, name: "ÇAĞRI YILDIRIM", present: true, isCs: false }
         ];
 
+        // 1. GÜVENLİ OTO-KAYIT OKUMA (Hata Yakalayıcı ile)
+        let peopleData;
+        try {
+            const storedData = localStorage.getItem("techPeopleData");
+            if (storedData) {
+                peopleData = JSON.parse(storedData);
+                // Ekstra güvenlik: Gelen veri bozuk veya boşsa varsayılana dön
+                if (!Array.isArray(peopleData) || peopleData.length === 0 || !peopleData[0].hasOwnProperty('name')) {
+                    peopleData = JSON.parse(JSON.stringify(defaultPeopleData));
+                }
+            } else {
+                peopleData = JSON.parse(JSON.stringify(defaultPeopleData));
+            }
+        } catch (error) {
+            console.error("Hafıza okunurken hata oluştu, varsayılana dönülüyor:", error);
+            peopleData = JSON.parse(JSON.stringify(defaultPeopleData));
+        }
+
+        let lastGeneratedData = null; 
+
         const listContainer = document.getElementById("people-list-container");
         const resultContainer = document.getElementById("result-container");
         const printBtn = document.getElementById("print-btn");
+        const saveBtn = document.getElementById("save-btn");
 
+        // Listeyi Çiz
         function renderPeopleList() {
+            if (!listContainer) return;
             listContainer.innerHTML = "";
             peopleData.forEach((person, index) => {
                 const div = document.createElement("div");
@@ -603,16 +387,33 @@
                 `;
                 listContainer.appendChild(div);
             });
+            savePeopleState(); 
+        }
+
+        function savePeopleState() {
+            try {
+                localStorage.setItem("techPeopleData", JSON.stringify(peopleData));
+            } catch(e) { console.error("Kaydedilemedi", e); }
+        }
+
+        // Sistemi Fabrika Ayarlarına Döndüren Fonksiyon
+        function resetSystem() {
+            if(confirm("Tüm isimleri, yoklama ayarlarını ve arşivdeki geçmiş kayıtları SIFIRLAMAK istediğinize emin misiniz?")) {
+                localStorage.clear();
+                location.reload(); // Sayfayı yenile
+            }
         }
 
         function togglePresence(index) { 
             peopleData[index].present = !peopleData[index].present; 
+            savePeopleState();
         }
 
         function setCS(selectedIndex) {
             peopleData.forEach((person, index) => {
                 person.isCs = (index === selectedIndex);
             });
+            savePeopleState();
         }
 
         function enableEdit(index) {
@@ -635,14 +436,17 @@
             document.getElementById(`name-input-${index}`).style.display = 'none';
             document.getElementById(`edit-btn-${index}`).style.display = 'block';
             document.getElementById(`save-btn-${index}`).style.display = 'none';
+            savePeopleState();
         }
 
+        // Kura İşlemi
         function generateTaskCards() {
             let presentPeopleNames = peopleData.filter(p => p.present).map(p => p.name);
 
             if (presentPeopleNames.length === 0) {
                 resultContainer.innerHTML = "<div style='color: var(--thy-red); font-weight: bold;'>⚠️ Lütfen en az bir teknisyen seçin!</div>";
                 printBtn.style.display = "none";
+                saveBtn.style.display = "none";
                 return;
             }
 
@@ -650,11 +454,13 @@
             if (!csPerson || !csPerson.present) {
                 resultContainer.innerHTML = "<div style='color: var(--thy-red); font-weight: bold;'>⚠️ Seçtiğiniz CS personeli yoklamada yok (işaretli değil)! Lütfen yoklamada olan birini CS seçin.</div>";
                 printBtn.style.display = "none";
+                saveBtn.style.display = "none";
                 return;
             }
 
             const csName = csPerson.name;
 
+            // Kura Karıştırma
             for (let i = presentPeopleNames.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [presentPeopleNames[i], presentPeopleNames[j]] = [presentPeopleNames[j], presentPeopleNames[i]];
@@ -664,7 +470,6 @@
             resultContainer.innerHTML = ""; 
 
             let htmlOutput = `<div class="a4-print-container">`;
-            
             htmlOutput += `
                 <div class="print-only-header">
                     <h2>THY TECHNIC - WORK GROUPS</h2>
@@ -674,9 +479,11 @@
             `;
 
             let groupNum = 1;
+            let generatedGroupsForArchive = []; 
 
             for (let i = 0; i < presentPeopleNames.length; i += size) {
                 const groupMembers = presentPeopleNames.slice(i, i + size);
+                generatedGroupsForArchive.push(groupMembers); 
                 
                 let membersHTML = groupMembers.map(member => {
                     let badge = member === csName ? `<span class="cs-badge">(CS)</span>` : "";
@@ -701,12 +508,10 @@
                         </div>
                     </div>
                 `;
-                
                 groupNum++;
             }
 
             htmlOutput += `</div>`; 
-
             htmlOutput += `
                 <div class="master-footer">
                     <div class="mf-section">
@@ -723,9 +528,104 @@
 
             resultContainer.innerHTML = htmlOutput;
             printBtn.style.display = "flex";
+            saveBtn.style.display = "flex"; 
+
+            const nowTime = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+            lastGeneratedData = {
+                id: Date.now(),
+                date: todayStr,
+                time: nowTime,
+                cs: csName,
+                groups: generatedGroupsForArchive
+            };
         }
 
-        renderPeopleList();
+        // Güvenli Arşiv Okuma
+        function getHistorySafe() {
+            try {
+                let history = JSON.parse(localStorage.getItem("shiftHistory"));
+                return Array.isArray(history) ? history : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function saveToArchive() {
+            if (!lastGeneratedData) return;
+            
+            let history = getHistorySafe();
+            const isDuplicate = history.some(record => record.id === lastGeneratedData.id);
+            
+            if (!isDuplicate) {
+                history.unshift(lastGeneratedData); 
+                try {
+                    localStorage.setItem("shiftHistory", JSON.stringify(history));
+                } catch(e) { console.error("Arşiv kaydedilemedi", e); }
+                
+                renderHistory(); 
+                
+                const originalText = saveBtn.innerText;
+                const originalColor = saveBtn.style.backgroundColor;
+                saveBtn.innerText = "✅ Kaydedildi!";
+                saveBtn.style.backgroundColor = "#10B981";
+                saveBtn.style.color = "white";
+                setTimeout(() => {
+                    saveBtn.innerText = originalText;
+                    saveBtn.style.backgroundColor = ""; 
+                    saveBtn.style.color = "";
+                }, 2000);
+            }
+        }
+
+        function renderHistory() {
+            const historyContainer = document.getElementById("history-container");
+            if(!historyContainer) return;
+
+            let history = getHistorySafe();
+            
+            if (history.length === 0) {
+                historyContainer.innerHTML = "<div style='color:#6B7280; text-align:center; margin-top:30px; font-size:14px;'>Henüz onaylanmış bir görev dağılımı arşivlenmedi.</div>";
+                return;
+            }
+
+            let html = "";
+            history.forEach((record) => {
+                let groupsHtml = "";
+                record.groups.forEach((grp, i) => {
+                    groupsHtml += `<div class="history-group"><strong>Grp ${i+1}:</strong> ${grp.join(", ")}</div>`;
+                });
+
+                html += `
+                    <div class="history-card">
+                        <div class="history-header">
+                            <span>📅 ${record.date} - ${record.time}</span>
+                            <button class="btn-delete" onclick="deleteHistory(${record.id})" title="Kaydı Sil">🗑️</button>
+                        </div>
+                        <div class="history-cs">CS: ${record.cs}</div>
+                        ${groupsHtml}
+                    </div>
+                `;
+            });
+            historyContainer.innerHTML = html;
+        }
+
+        function deleteHistory(id) {
+            if(confirm("Bu geçmiş kaydı silmek istediğinize emin misiniz?")) {
+                let history = getHistorySafe();
+                history = history.filter(record => record.id !== id);
+                try {
+                    localStorage.setItem("shiftHistory", JSON.stringify(history));
+                } catch(e) { console.error("Silinemedi", e); }
+                renderHistory();
+            }
+        }
+
+        // Sayfa Başlatıcı
+        window.onload = function() {
+            renderPeopleList();
+            renderHistory();
+        };
+
     </script>
 </body>
 </html>

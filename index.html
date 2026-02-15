@@ -23,41 +23,90 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Ana sayfa dikey kaydırmayı engelle */
+            overflow: hidden; 
         }
 
-        /* Üst Bilgi Çubuğu */
+        /* Üst Bilgi Çubuğu (YENİ VE MODERN TASARIM) */
         .header {
-            background-color: var(--thy-dark-blue);
+            background: linear-gradient(135deg, #00152b 0%, var(--thy-dark-blue) 100%);
             color: var(--white);
-            padding: 15px 20px;
+            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 4px solid var(--thy-red);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             z-index: 10;
             flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Arka plan için teknik ışık yansıması detayı */
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: radial-gradient(circle at right top, rgba(195, 0, 47, 0.2) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .header-logo-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1;
+        }
+
+        .header-icon {
+            background: var(--thy-red);
+            color: white;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(195, 0, 47, 0.6);
         }
 
         .header h1 {
             margin: 0;
             font-size: 20px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-weight: 800;
+            letter-spacing: 1px;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            text-transform: uppercase;
+        }
+
+        .header h1 span.subtitle {
+            font-size: 11px;
+            font-weight: 500;
+            color: #9CA3AF;
+            letter-spacing: 2px;
+            margin-top: 3px;
         }
 
         .shift-info {
             font-family: 'Courier New', Courier, monospace;
             font-size: 14px;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 6px 12px;
-            border-radius: 4px;
-            letter-spacing: 0.5px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 6px;
+            letter-spacing: 1px;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.5);
+        }
+
+        .shift-info .highlight {
+            color: var(--warning-yellow);
         }
 
         /* Ana Kapsayıcı - Her zaman yatay */
@@ -153,6 +202,7 @@
             font-size: 14px;
             margin-right: 10px;
             width: 100px;
+            text-transform: uppercase; 
         }
 
         .person-right {
@@ -280,7 +330,7 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid var(--thy-dark-blue);
-            white-space: nowrap; /* SATIR BÖLÜNMESİNİ ENGELLER */
+            white-space: nowrap; 
         }
 
         .tc-header span {
@@ -357,32 +407,41 @@
         ::-webkit-scrollbar-track { background: #E5E7EB; }
         ::-webkit-scrollbar-thumb { background: var(--thy-dark-blue); border-radius: 4px; }
 
-        /* YENİ MOBİL UYUM (Yatay Kaydırma) */
+        /* MOBİL UYUM */
         @media (max-width: 768px) {
-            .header h1 { font-size: 16px; }
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+                padding: 15px;
+            }
+            .header-logo-title { justify-content: flex-start; }
+            .header h1 { font-size: 18px; }
+            .shift-info { justify-content: center; }
+
             .layout-container {
                 padding: 10px;
-                scroll-snap-type: x mandatory; /* Kartların ekrana tam oturmasını sağlar */
+                scroll-snap-type: x mandatory; 
             }
             .panel {
-                min-width: 90vw; /* Telefon ekranının %90'ını kaplar */
+                min-width: 90vw; 
                 scroll-snap-align: center;
             }
             .cards-grid { grid-template-columns: 1fr; }
         }
 
-        /* YAZDIRMA (PRINT) STİLLERİ - TEK SAYFA KESİN ÇÖZÜM */
+        /* YAZDIRMA (PRINT) STİLLERİ - KESİN DOĞAL AKIŞ ÇÖZÜMÜ */
         @media print {
             @page { 
                 size: A4 portrait; 
-                margin: 1cm; 
+                margin: 15mm; 
             }
             html, body { 
                 background: white; 
-                height: 98vh !important; 
                 margin: 0 !important; 
                 padding: 0 !important;
-                overflow: hidden !important; 
+                height: auto !important;
+                overflow: visible !important; 
             }
             .header, 
             .layout-container > .panel:nth-child(1), 
@@ -392,7 +451,7 @@
             .layout-container { 
                 padding: 0; 
                 display: block; 
-                height: 100%; 
+                height: auto; 
             }
             .layout-container > .panel:nth-child(3) { 
                 border: none; 
@@ -400,16 +459,13 @@
                 width: 100%; 
                 max-width: none; 
                 padding: 0; 
-                height: 100%; 
+                height: auto; 
             }
             .panel-header { display: none !important; }
             
             .a4-print-container {
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-                justify-content: flex-start;
-                box-sizing: border-box;
+                display: block; 
+                height: auto;
             }
 
             .print-only-header {
@@ -425,6 +481,7 @@
             .print-only-header p { margin: 5px 0 0 0; font-family: 'Courier New'; font-size: 14px; font-weight: bold; }
 
             .cards-grid {
+                display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 20px;
                 page-break-inside: avoid;
@@ -433,10 +490,12 @@
             .task-card { border: 2px solid black; break-inside: avoid; }
             
             .master-footer { 
-                margin-top: auto; 
+                margin-top: 50px !important; 
                 border-top: 2px solid black; 
                 padding-top: 15px;
                 width: 100%;
+                display: flex;
+                page-break-inside: avoid; 
             }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
@@ -445,9 +504,20 @@
 <body>
 
     <div class="header">
-        <h1>🔧 Teknik Ekip Görev Dağılımı</h1>
+        <div class="header-logo-title">
+            <div class="header-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+            </div>
+            <h1>
+                TEKNİK EKİP GÖREV DAĞILIMI
+                <span class="subtitle">LINE MAINTENANCE WORK GROUPS</span>
+            </h1>
+        </div>
         <div class="shift-info">
-            DATE: <span id="current-date"></span> | SHFT: GÜNDÜZ
+            <div>DATE: <span id="current-date" class="highlight"></span></div>
+            <div>SHFT: <span class="highlight">GÜNDÜZ</span></div>
         </div>
     </div>
 
@@ -462,7 +532,7 @@
             <div class="panel-header"><span>⚙️ İş Emri Ayarları</span></div>
             <div class="panel-content">
                 <div class="control-group">
-                    <label for="group-size">Görevli Sayısı (Kişi/Kart):</label>
+                    <label for="group-size">Görevli Sayısı (Kişi/Grup):</label>
                     <select id="group-size">
                         <option value="2">2 Teknisyen</option>
                         <option value="3">3 Teknisyen</option>
@@ -475,7 +545,7 @@
 
         <div class="panel" style="flex: 1; max-width: none;">
             <div class="panel-header">
-                <span>📄 Aktif Görev Kartları (Work Orders)</span>
+                <span>📄 Aktif Gruplar</span>
                 <button class="btn-print" id="print-btn" onclick="window.print()">🖨️ A4 Yazdır</button>
             </div>
             <div class="panel-content" id="result-container">
@@ -497,14 +567,14 @@
         document.getElementById('current-date').innerText = todayStr;
 
         let peopleData = [
-            { id: 4, name: "Mert Cıvan", present: true, isCs: true },
-            { id: 1, name: "Ahmet Ali Türk", present: true, isCs: false },
-            { id: 2, name: "Tolgahan Köntek", present: true, isCs: false },
-            { id: 3, name: "Nurettin Ulvi Kılıç", present: true, isCs: false },
-            { id: 5, name: "Oğuzhan Çelik", present: true, isCs: false },
-            { id: 6, name: "Arda Dönmez", present: true, isCs: false },
-            { id: 7, name: "Recep Kamil Akkaya", present: true, isCs: false },
-            { id: 8, name: "Çağrı Yıldırım", present: true, isCs: false }
+            { id: 4, name: "MERT CIVAN", present: true, isCs: true },
+            { id: 1, name: "AHMET ALİ TÜRK", present: true, isCs: false },
+            { id: 2, name: "TOLGAHAN KÖNTEK", present: true, isCs: false },
+            { id: 3, name: "NURETTİN ULVİ KILIÇ", present: true, isCs: false },
+            { id: 5, name: "OĞUZHAN ÇELİK", present: true, isCs: false },
+            { id: 6, name: "ARDA DÖNMEZ", present: true, isCs: false },
+            { id: 7, name: "RECEP KAMİL AKKAYA", present: true, isCs: false },
+            { id: 8, name: "ÇAĞRI YILDIRIM", present: true, isCs: false }
         ];
 
         const listContainer = document.getElementById("people-list-container");
@@ -554,7 +624,7 @@
         }
 
         function saveEdit(index) {
-            const newName = document.getElementById(`name-input-${index}`).value.trim();
+            const newName = document.getElementById(`name-input-${index}`).value.trim().toLocaleUpperCase('tr-TR');
             if (newName) {
                 peopleData[index].name = newName;
                 document.getElementById(`name-display-${index}`).innerText = newName;
@@ -597,24 +667,26 @@
             
             htmlOutput += `
                 <div class="print-only-header">
-                    <h2>THY TECHNIC - SHIFT WORK ORDERS</h2>
+                    <h2>THY TECHNIC - WORK GROUPS</h2>
                     <p>DATE: ${todayStr} | SHIFT: GÜNDÜZ | AC: TC-EGT (B737-300)</p>
                 </div>
                 <div class="cards-grid">
             `;
+
+            let groupNum = 1;
 
             for (let i = 0; i < presentPeopleNames.length; i += size) {
                 const groupMembers = presentPeopleNames.slice(i, i + size);
                 
                 let membersHTML = groupMembers.map(member => {
                     let badge = member === csName ? `<span class="cs-badge">(CS)</span>` : "";
-                    return `<div class="tc-tech">${member.toUpperCase()}${badge}</div>`;
+                    return `<div class="tc-tech">${member}${badge}</div>`;
                 }).join("");
 
                 htmlOutput += `
                     <div class="task-card">
                         <div class="tc-header">
-                            <span>WORK ORDER: WO-0001</span>
+                            <span>GRUP NO: ${groupNum}</span>
                             <span class="tc-badge">LINE MAINT</span>
                         </div>
                         <div class="tc-meta">
@@ -629,6 +701,8 @@
                         </div>
                     </div>
                 `;
+                
+                groupNum++;
             }
 
             htmlOutput += `</div>`; 
@@ -641,7 +715,7 @@
                     </div>
                     <div class="mf-section" style="text-align: right;">
                         <strong>CERTIFYING STAFF (CS):</strong>
-                        <span>${csName.toUpperCase()}</span>
+                        <span>${csName}</span>
                         <div class="mf-sign-line"></div>
                     </div>
                 </div>
